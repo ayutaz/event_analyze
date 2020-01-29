@@ -1,4 +1,5 @@
 # event_analyze
+同人イベントでどんな人が何を買ったのかを簡単に管理できるアプリ
 
 ## Project setup
 ```
