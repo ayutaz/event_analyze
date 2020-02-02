@@ -1,6 +1,8 @@
 <template>
   <div id="app">
-    <div class="ui continer">現在のページ位置</div>
+    <div class="ui top">
+      <div class="ui continer">{{pageTitle}}</div>
+    </div>
     <router-view/>
     <div class="ui bottom fixed massive three item menu">
       <router-link to="/" class="item">ホーム</router-link>
@@ -9,3 +11,17 @@
     </div>
   </div>
 </template>
+
+<script>
+
+export default {
+  data () {
+    return {}
+  },
+  computed: {
+    pageTitle () {
+      return !!this.$route.meta && !!this.$route.meta.title ? this.$route.meta.title : 'Default title'
+    }
+  }
+}
+</script>

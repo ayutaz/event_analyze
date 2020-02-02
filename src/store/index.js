@@ -5,16 +5,23 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    page: 'home',
-    new_page: ''
+    pageTitle: 'home'
   },
   mutations: {
-    change_page (state) {
-      state.page = state.new_page
+    cahgePageTitle (state, title) {
+      const st = state
+      st.pageTitle = title
     }
   },
   actions: {
+    changePage ({ commit }, title) {
+      commit('cahgePageTitle', title)
+    }
   },
   modules: {
+  },
+  pageTitle (state) {
+    const st = state
+    return st.pageTitle
   }
 })
