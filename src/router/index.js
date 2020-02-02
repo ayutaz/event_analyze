@@ -39,14 +39,6 @@ const routes = [
     }
   },
   {
-    path: '/list',
-    name: 'list',
-    component: () => import('../views/List.vue'),
-    meta: {
-      title: '一覧'
-    }
-  },
-  {
     path: '/help',
     name: 'help',
     component: () => import('../views/Help.vue'),
