@@ -18,11 +18,22 @@
             </div>
             <div class="field">
                 <label>性別</label>
-                <input v-model="sex">
+                <input v-model="sex" type="radio" value="男">
+                <label>男</label>
+                <input v-model="sex" type="radio" value="女">
+                <label>女</label>
             </div>
             <div class="field">
                 <label>年齢</label>
-                <input v-model="age">
+                <div class="ui selection dropdown">
+                  <input type="hidden" name="性別">
+                  <i class="dropdown icon"></i>
+                  <div class="default text">性別</div>
+                  <div class="menu">
+                    <div class="item" data-value="1">男</div>
+                    <div class="item" data-value="0">女</div>
+                  </div>
+                </div>
             </div>
             <button class="ui button" v-on:click="addItems">追加</button>
         </form>
