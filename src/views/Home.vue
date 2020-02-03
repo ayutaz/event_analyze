@@ -41,12 +41,12 @@ export default {
   created: function () {
     this.db = firebase.firestore()
     let _this = this
-    this.db.collection('goods').onSnapshot(function (querySnapshot) {
+    this.db.collection('historys').onSnapshot(function (querySnapshot) {
       _this.items = []
       querySnapshot.forEach(function (doc) {
         var data = doc.data()
         data.id = doc.id
-        _this.goods.push(data)
+        _this.items.push(data)
       })
     })
   }
