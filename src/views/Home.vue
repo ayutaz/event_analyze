@@ -47,6 +47,7 @@ export default {
         var data = doc.data()
         data.id = doc.id
         _this.items.push(data)
+        console.log(_this.items)
       })
     })
   }
