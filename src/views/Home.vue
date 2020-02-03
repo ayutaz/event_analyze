@@ -15,12 +15,12 @@
       <a class="ui bule label" v-if="item.sex == '男'">
         男
         <div class="detail">{{item.age}}代</div>
-        <div class="detail">{{item.buyTime}}</div>
+        <div class="detail">{{item.buyTime.getFullYear()}}/{{item.buyTime.getMonth()}}/{{item.buyTime.getDay()}}</div>
       </a>
       <a class="ui red label" v-else-if="item.sex == '女'">
         女
         <div class="detail">{{item.age}}代</div>
-        <div class="detail">{{item.buyTime}}</div>
+        <div class="detail">{{item.buyTime.getFullYear()}}/{{item.buyTime.getMonth()}}/{{item.buyTime.getDay()}}</div>
       </a>
       <div class="ui relaxed divided list" v-for="(goods, index) in item.items" :key="index">
         {{goods.item_name}}   {{goods.item_count}}個   {{goods.item_price}}円
@@ -50,6 +50,7 @@ export default {
       querySnapshot.forEach(function (doc) {
         var data = doc.data()
         data.id = doc.id
+        data.buyTime = data.buyTime.toDate()
         for (let i = 0; i < data.items.length; i++) {
           _this.sum += data.items[i].item_price
         }
