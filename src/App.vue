@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <!-- <div class="ui top fixed three item menu">
+    <div class="ui top attached three item menu">
       <router-link to="/" class="item">
         <img src="/img/logo/logo.png">
       </router-link>
@@ -8,8 +8,10 @@
       <router-link to="/help" class="item">
         <i class="question circle outline big icon"></i>
       </router-link>
-    </div> -->
+    </div>
+    <div class="ui botton attached segment">
     <router-view/>
+    </div>
     <div class="ui bottom fixed massive three item menu">
       <router-link to="/" class="item"><i class="home icon"></i>ホーム</router-link>
       <router-link to="/add" class="item"><i class="plus icon"></i>追加</router-link>
