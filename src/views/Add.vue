@@ -25,19 +25,12 @@
             </div>
             <div class="field">
                 <label>年齢</label>
-                <div class="ui selection dropdown">
-                  <input type="hidden" name="年齢">
-                  <i class="dropdown icon"></i>
-                  <div class="default text">年齢</div>
-                  <div class="menu">
-                    <div class="item" data-value="0">~10代</div>
-                    <div class="item" data-value="1">20代</div>
-                    <div class="item" data-value="2">30代</div>
-                    <div class="item" data-value="3">40代</div>
-                    <div class="item" data-value="4">50代</div>
-                    <div class="item" data-value="5">60代~</div>
-                  </div>
-                </div>
+                <select class="ui dropdown" v-model="age" id="age">
+                  <option disabled value="">年齢</option>
+                  <option v-for="option in age_list" :key="option.id">
+                    {{option.text}}
+                  </option>
+                </select>
             </div>
             <button class="ui button" v-on:click="addItems()">追加</button>
         </form>
@@ -47,11 +40,13 @@
 <script>
 import firebase from 'firebase'
 import 'firebase/firestore'
+import store from '../store/index'
 export default {
   name: 'add',
   data: function () {
     return {
       db: null,
+      age_list: null,
       sum: '',
       sex: '',
       age: '',
@@ -66,6 +61,8 @@ export default {
   },
   created: function () {
     this.db = firebase.firestore()
+    this.age_list = store.state.age_list
+    this.age()
   },
   methods: {
     addItems: function () {
@@ -97,6 +94,12 @@ export default {
         // エラー時の処理
           console.log('dbの追加エラー')
         })
+    }
+  },
+  watch: {
+    age: function (event) {
+      // eslint-disable-next-line no-undef
+      $('#age').dropdown()
     }
   }
 }
