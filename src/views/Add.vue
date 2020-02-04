@@ -1,6 +1,6 @@
 <template>
     <div class="add">
-        <form class="ui form">
+        <!-- <form class="ui form">
             <div class="field">
                 <label>商品</label>
                 <div class="ui labeled input">
@@ -36,7 +36,9 @@
                 </div>
             </div>
             <button class="ui button" v-on:click="addItems">追加</button>
-        </form>
+        </form> -->
+        <input v-model="age" type="number">
+        <button v-on:click="addItems()">テスト追加</button>
     </div>
 </template>
 
@@ -48,17 +50,16 @@ export default {
   data: function () {
     return {
       db: null,
-      sum: '',
-      sex: '',
-      age: '',
-      items: {
-        1: {
-          name: '',
-          count: '',
-          price: ''
-        }
-      }
-
+      // sum: '',
+      // sex: '',
+      age: ''
+      // items: {
+      //   1: {
+      //     name: '',
+      //     count: '',
+      //     price: ''
+      //   }
+      // }
     }
   },
   created: function () {
@@ -70,29 +71,29 @@ export default {
 
       // todos コレクションにドキュメントを追加
       this.db.collection('historys').add({
-        sum: _this.sum,
-        sex: _this.sex,
-        age: _this.age,
-        items: {
-          1: {
-            name: _this['1'].name,
-            count: _this['1'].count,
-            price: _this['1'].price
-          }
-        }
-
+        // sum: _this.sum,
+        // sex: _this.sex,
+        age: _this.age
+        // items: {
+        //   1: {
+        //     name: _this['1'].name,
+        //     count: _this['1'].count,
+        //     price: _this['1'].price
+        //   }
+        // }
       })
         .then(function () {
         // 追加に成功したら、name を空にする
-          _this.sum = ''
-          _this.sex = ''
+          // _this.sum = ''
+          // _this.sex = ''
           _this.age = ''
-          _this['1'].name = ''
-          _this['1'].count = ''
-          _this['1'].count = ''
+          // _this['1'].name = ''
+          // _this['1'].count = ''
+          // _this['1'].count = ''
         })
         .catch(function () {
         // エラー時の処理
+          console.log('dbの追加エラー')
         })
     }
   }
