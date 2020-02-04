@@ -1,6 +1,6 @@
 <template>
     <div class="add">
-        <!-- <form class="ui form">
+        <form class="ui form">
             <div class="field">
                 <label>商品</label>
                 <div class="ui labeled input">
@@ -26,19 +26,21 @@
             <div class="field">
                 <label>年齢</label>
                 <div class="ui selection dropdown">
-                  <input type="hidden" name="性別">
+                  <input type="hidden" name="年齢">
                   <i class="dropdown icon"></i>
-                  <div class="default text">性別</div>
+                  <div class="default text">年齢</div>
                   <div class="menu">
-                    <div class="item" data-value="1">男</div>
-                    <div class="item" data-value="0">女</div>
+                    <div class="item" data-value="0">~10代</div>
+                    <div class="item" data-value="1">20代</div>
+                    <div class="item" data-value="2">30代</div>
+                    <div class="item" data-value="3">40代</div>
+                    <div class="item" data-value="4">50代</div>
+                    <div class="item" data-value="5">60代~</div>
                   </div>
                 </div>
             </div>
-            <button class="ui button" v-on:click="addItems">追加</button>
-        </form> -->
-        <input v-model="age" type="number">
-        <button v-on:click="addItems()">テスト追加</button>
+            <button class="ui button" v-on:click="addItems()">追加</button>
+        </form>
     </div>
 </template>
 
@@ -50,16 +52,16 @@ export default {
   data: function () {
     return {
       db: null,
-      // sum: '',
-      // sex: '',
-      age: ''
-      // items: {
-      //   1: {
-      //     name: '',
-      //     count: '',
-      //     price: ''
-      //   }
-      // }
+      sum: '',
+      sex: '',
+      age: '',
+      items: {
+        1: {
+          name: '',
+          count: '',
+          price: ''
+        }
+      }
     }
   },
   created: function () {
@@ -71,25 +73,25 @@ export default {
 
       // todos コレクションにドキュメントを追加
       this.db.collection('historys').add({
-        // sum: _this.sum,
-        // sex: _this.sex,
-        age: _this.age
-        // items: {
-        //   1: {
-        //     name: _this['1'].name,
-        //     count: _this['1'].count,
-        //     price: _this['1'].price
-        //   }
-        // }
+        sum: _this.sum,
+        sex: _this.sex,
+        age: _this.age,
+        items: {
+          1: {
+            name: _this['1'].name,
+            count: _this['1'].count,
+            price: _this['1'].price
+          }
+        }
       })
         .then(function () {
         // 追加に成功したら、name を空にする
-          // _this.sum = ''
-          // _this.sex = ''
+          _this.sum = ''
+          _this.sex = ''
           _this.age = ''
-          // _this['1'].name = ''
-          // _this['1'].count = ''
-          // _this['1'].count = ''
+          _this['1'].name = ''
+          _this['1'].count = ''
+          _this['1'].count = ''
         })
         .catch(function () {
         // エラー時の処理
