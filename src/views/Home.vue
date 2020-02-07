@@ -14,12 +14,12 @@
     <div class="card">
       <a class="ui bule label" v-if="item.sex == '男'">
         男
-        <div class="detail">{{item.age}}代</div>
+        <div class="detail">{{item.age}}</div>
         <div class="detail">{{item.buyTime.getFullYear()}}/{{item.buyTime.getMonth()}}/{{item.buyTime.getDay()}}</div>
       </a>
       <a class="ui red label" v-else-if="item.sex == '女'">
         女
-        <div class="detail">{{item.age}}代</div>
+        <div class="detail">{{item.age}}</div>
         <div class="detail">{{item.buyTime.getFullYear()}}/{{item.buyTime.getMonth()}}/{{item.buyTime.getDay()}}</div>
       </a>
       <div class="ui relaxed divided list" v-for="(goods, index) in item.items" :key="index">
