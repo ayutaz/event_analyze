@@ -10,7 +10,7 @@
               </div>
               <div class="two wide field">
                 <label>個数</label>
-                <input v-model.number="item.item_count" type="number" placeholder="0">
+                <input v-model.number.trim="item.item_count" type="number" placeholder="0">
               </div>
             </div>
           </div>
@@ -28,7 +28,7 @@
           </div>
           <div class="field">
               <label>年齢</label>
-              <select v-model="age" id="age">
+              <select v-model.trim="age" id="age">
                 <option v-for="option in age_list" :key="option.id">
                   {{option.text}}
                 </option>

@@ -22,7 +22,7 @@
         <div class="ui relaxed divided list" v-for="(goods, index) in item.items" :key="index">
           {{goods.item_name}}   {{goods.item_count}}個   {{goods.item_price}}円
         </div>
-        <div class="ui bottom attached button">修正</div>
+        <router-link :to="{name:'edit',params:{id:item.id}}" class="ui bottom attached button">修正</router-link>
       </div>
     </div>
   </div>
@@ -47,11 +47,11 @@ export default {
       _this.items = []
       querySnapshot.forEach(function (doc) {
         var data = doc.data()
+        data.id = doc.id
         data.items.forEach(function (item) {
           _this.sum_price += item.item_price
           _this.sum_num += item.item_count
         })
-        data.id = doc.id
         data.buyTime = data.buyTime.toDate()
         _this.items.push(data)
       })
