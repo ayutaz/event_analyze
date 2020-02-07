@@ -11,16 +11,19 @@
       <div class="label">個</div>
     </div>
     <div class="ui cards" v-for="(item,key) in items" :key="key">
-      <div class="card">
-        <div class="contene">
+      <div class="blue card">
+        <div class="ui relaxed divided list" v-for="(goods, index) in item.items" :key="index">
+          <div class="item">
+            {{goods.item_name}}
+            {{goods.item_count}}個
+          </div>
+        </div>
+        <div>
           <i class="male blue icon left floated meta" v-if="item.sex == '男'"></i>
           <i class="female red icon left floated meta" v-else-if="item.sex == '女'"></i>
           <i class="user green icon left floated meta" v-else-if="item.sex == 'その他'"></i>
-          <div class="left floated meta">{{item.age}}</div>
-          <div class="detail column">{{item.buyTime.getFullYear()}}/{{item.buyTime.getMonth()}}/{{item.buyTime.getDay()}}</div>
-        </div>
-        <div class="ui relaxed divided list" v-for="(goods, index) in item.items" :key="index">
-          {{goods.item_name}}   {{goods.item_count}}個   {{goods.item_price}}円
+          <div class="left floated detail">{{item.age}}</div>
+          <div class="right floated detail">{{item.buyTime.getFullYear()}}/{{item.buyTime.getMonth()}}/{{item.buyTime.getDay()}}</div>
         </div>
         <router-link :to="{name:'edit',params:{id:item.id}}" class="ui bottom attached button">修正</router-link>
       </div>
