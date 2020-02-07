@@ -11,13 +11,8 @@
       <div class="label">個</div>
     </div>
     <div class="ui cards" v-for="(item,key) in items" :key="key">
-      <div class="blue card">
-        <div class="ui relaxed divided list" v-for="(goods, index) in item.items" :key="index">
-          <div class="item">
-            {{goods.item_name}}
-            {{goods.item_count}}個
-          </div>
-        </div>
+      <div class="blue card" v-for="(goods, index) in item.items" :key="index">
+        <div class="ui header">{{goods.item_name}}  {{goods.item_count}}個</div>
         <div>
           <i class="male blue icon left floated meta" v-if="item.sex == '男'"></i>
           <i class="female red icon left floated meta" v-else-if="item.sex == '女'"></i>
