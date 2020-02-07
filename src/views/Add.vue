@@ -10,7 +10,7 @@
               </div>
               <div class="two wide field">
                 <label>個数</label>
-                <input v-model="item.item_count" type="number" placeholder="0">
+                <input v-model.number="item.item_count" type="number" placeholder="0">
               </div>
             </div>
           </div>
