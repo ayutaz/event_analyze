@@ -23,7 +23,7 @@ const routes = [
     }
   },
   {
-    path: '/delete:id',
+    path: '/delete',
     name: 'delete',
     component: () => import('../views/Delete.vue'),
     meta: {
