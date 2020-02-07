@@ -10,23 +10,19 @@
       <div class="value">{{sum_num}}</div>
       <div class="label">個</div>
     </div>
-  <div class="ui cards" v-for="(item,key) in items" :key="key">
-    <div class="card">
-      <a class="ui bule label" v-if="item.sex == '男'">
-        男
-        <div class="detail">{{item.age}}</div>
-        <div class="detail">{{item.buyTime.getFullYear()}}/{{item.buyTime.getMonth()}}/{{item.buyTime.getDay()}}</div>
-      </a>
-      <a class="ui red label" v-else-if="item.sex == '女'">
-        女
-        <div class="detail">{{item.age}}</div>
-        <div class="detail">{{item.buyTime.getFullYear()}}/{{item.buyTime.getMonth()}}/{{item.buyTime.getDay()}}</div>
-      </a>
-      <div class="ui relaxed divided list" v-for="(goods, index) in item.items" :key="index">
-        {{goods.item_name}}   {{goods.item_count}}個   {{goods.item_price}}円
+    <div class="ui cards" v-for="(item,key) in items" :key="key">
+      <div class="blue card" v-for="(goods, index) in item.items" :key="index">
+        <div class="ui header">{{goods.item_name}}  {{goods.item_count}}個</div>
+        <div>
+          <i class="male blue icon left floated meta" v-if="item.sex == '男'"></i>
+          <i class="female red icon left floated meta" v-else-if="item.sex == '女'"></i>
+          <i class="user green icon left floated meta" v-else-if="item.sex == 'その他'"></i>
+          <div class="left floated detail">{{item.age}}</div>
+          <div class="right floated detail">{{item.buyTime.getFullYear()}}/{{item.buyTime.getMonth()}}/{{item.buyTime.getDay()}}</div>
+        </div>
+        <router-link :to="{name:'edit',params:{id:item.id}}" class="ui bottom attached button">修正</router-link>
       </div>
     </div>
-  </div>
   </div>
 </template>
 
@@ -50,13 +46,16 @@ export default {
       querySnapshot.forEach(function (doc) {
         var data = doc.data()
         data.id = doc.id
+        data.items.forEach(function (item) {
+          _this.sum_price += item.item_price
+          _this.sum_num += item.item_count
+        })
         data.buyTime = data.buyTime.toDate()
-        for (let i = 0; i < data.items.length; i++) {
-          _this.sum += data.items[i].item_price
-        }
         _this.items.push(data)
       })
     })
+  },
+  methods: {
   }
 }
 </script>
