@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <div class="ui top attached three item menu">
+    <div class="ui top fixed three item menu">
       <router-link to="/" class="item">
         <img src="/img/logo/logo.png">
       </router-link>
