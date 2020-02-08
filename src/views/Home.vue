@@ -20,7 +20,7 @@
           <div class="left floated detail">{{item.age}}</div>
           <div class="right floated detail">{{item.buyTime.getFullYear()}}/{{item.buyTime.getMonth()}}/{{item.buyTime.getDay()}}</div>
         </div>
-        <router-link :to="{name:'edit',params:{id:item.id}}" class="ui bottom attached button">修正</router-link>
+        <!-- <router-link :to="{name:'edit',params:{id:item.id}}" class="ui bottom attached button">修正</router-link> -->
       </div>
     </div>
   </div>
