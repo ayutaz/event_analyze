@@ -1,6 +1,5 @@
 <template>
-  <div class="home">
-    <div class="ui segment"></div>
+  <div class="home ui main container">
     <div class="ui horizontal statistic">
       売り上げ金額
       <div class="label">￥</div>
@@ -61,14 +60,6 @@ export default {
 }
 </script>
 
-<style scoped>
-.ui.horizontal.static{
-  margin-top: 10px ;
-  overflow: unset;
-}
+<style>
 
-.ui.cards{
-  /* overflow: scroll; */
-  overflow-y: scroll;
-}
 </style>
