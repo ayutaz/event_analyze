@@ -13,17 +13,29 @@ export default new Vuex.Store({
       { text: '40代', id: 4 },
       { text: '50代', id: 5 },
       { text: '60代~', id: 6 }
-    ]
+    ],
+    historyList: []
+  },
+  getters: {
+    getHistoryList: (state) => {
+      return this.$store.state.historyList
+    }
   },
   mutations: {
-    cahgePageTitle (state, title) {
+    changePageTitle (state, title) {
       const st = state
       st.pageTitle = title
+    },
+    setItemList (state, items) {
+      state.historyList = items
     }
   },
   actions: {
     changePage ({ commit }, title) {
-      commit('cahgePageTitle', title)
+      commit('changePageTitle', title)
+    },
+    updateHistoryList ({ commit }, historyList) {
+      commit('setItemList', { historyList })
     }
   },
   modules: {
