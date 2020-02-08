@@ -9,6 +9,7 @@
 <script>
 import firebase from 'firebase'
 import 'firebase/firestore'
+import 'vue-chartjs'
 export default {
   data () {
     return {
