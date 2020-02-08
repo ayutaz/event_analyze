@@ -64,7 +64,7 @@ const routes = [
     }
   },
   {
-    path: '/admin/delete',
+    path: '/admin/delete/:id',
     name: 'adminDelete',
     component: () => import('../views/Admin/Delete.vue'),
     meta: {
@@ -72,9 +72,12 @@ const routes = [
     }
   },
   {
-    path: '/admin/edit',
+    path: '/admin/edit/:id',
+    name: 'adminEdit',
     component: () => import('../views/Admin/Edit.vue'),
-    meta: '商品の編集'
+    meta: {
+      title: '商品の編集'
+    }
   }
 ]
 
