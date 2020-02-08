@@ -15,7 +15,7 @@ export default {
   data () {
     return {
       db: null,
-      item: [],
+      items: [],
       age: 0,
       sum: 0,
       sex: null,
@@ -30,8 +30,10 @@ export default {
       this.buyTime = datas.buyTime
       this.age = datas.age
       this.sex = datas.sex
+      let _this = this
+      _this.items = []
       datas.items.forEach(function (item) {
-        this.item = item
+        _this.items.push(item)
       })
     })
   }

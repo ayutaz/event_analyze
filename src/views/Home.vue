@@ -53,7 +53,6 @@ export default {
         data.buyTime = data.buyTime.toDate()
         _this.items.push(data)
       })
-      // console.log(_this.items)
       _this.$store.dispatch('updateHistoryList', _this.items)
     })
   },
