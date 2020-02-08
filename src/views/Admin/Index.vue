@@ -9,12 +9,17 @@
 <script>
 import firebase from 'firebase'
 import 'firebase/firestore'
-import 'vue-chartjs'
+import { Pie } from 'vue-chartjs'
 export default {
+  extends: Pie,
   data () {
     return {
       db: null,
-      items: []
+      items: [],
+      sexCount: {
+        man: 0,
+        woman: 0
+      }
     }
   },
   created () {
@@ -28,6 +33,16 @@ export default {
         _this.items.push(data)
       })
     })
+    // this.$store.getters.getHistroyList.forEach(function (item) {
+    //   if (item.sex === '男') this.sexCount.man += 1
+    //   else if (item.sex === '女') this.sexCount.woman += 1
+    // })
+  },
+  mounted () {
+    // this.renderChart({
+    //   labels: ['男', '女'],
+    //   datasets: [this.sexCount.man, this.sexCount.woman]
+    // })
   }
 }
 </script>
