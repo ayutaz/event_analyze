@@ -27,12 +27,12 @@
               </div>
           </div>
           <div class="field">
-              <label>年齢</label>
-              <select v-model.trim="age" id="age">
-                <option v-for="option in age_list" :key="option.id">
-                  {{option.text}}
-                </option>
-              </select>
+            <label>年齢</label>
+            <select v-model.trim="age" id="age">
+              <option v-for="option in age_list" :key="option.id">
+                {{option.text}}
+              </option>
+            </select>
           </div>
           <button class="ui positive button" v-on:click.prevent="addItems()">追加</button>
         </form>
@@ -96,10 +96,6 @@ export default {
     }
   },
   watch: {
-    age: function (event) {
-      // eslint-disable-next-line no-undef
-      $('#age').dropdown()
-    },
     items: {
       handler: function () {
         for (let i = 0; i < this.items.length; i++) {
