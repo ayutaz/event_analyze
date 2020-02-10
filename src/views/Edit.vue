@@ -14,7 +14,6 @@
             </div>
           </div>
         <div class="ui centered aligned grid">
-          <button class="ui negative button four wide column" type="button" @click="deleteItem()">削除</button>
           <button class="ui positive button four wide column" type="button" @click="changeItem()">変更</button>
         </div>
       </form>
@@ -60,13 +59,6 @@ export default {
         console.log('Document successfully written!')
       }).catch(function (error) {
         console.error('Error writing document: ', error)
-      })
-    },
-    deleteItem: function () {
-      this.db.collection('historys').doc(this.$$route.params.id).delete().then(function () {
-        console.log('Document successfully deleted!')
-      }).catch(function (error) {
-        console.error('Error removing document: ', error)
       })
     },
     changeSex: function (sex) {

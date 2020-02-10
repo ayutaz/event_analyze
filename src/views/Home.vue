@@ -20,7 +20,10 @@
           <div class="left floated detail">{{item.age}}</div>
           <div class="right floated detail">{{item.buyTime.getFullYear()}}/{{item.buyTime.getMonth()}}/{{item.buyTime.getDay()}}</div>
         </div>
-        <router-link :to="{name:'edit',params:{id:item.id}}" class="ui bottom attached button">修正</router-link>
+        <div class="ui buttons">
+          <router-link :to="{name:'edit',params:{id:item.id}}" class="ui bottom attached button">修正</router-link>
+          <button class="ui negative button four wide column" type="button" @click="deleteItem(item.id)">削除</button>
+        </div>
       </div>
     </div>
   </div>
@@ -57,6 +60,33 @@ export default {
     })
   },
   methods: {
+    deleteItem: function (id) {
+      this.db.collection('historys').doc(id).delete().then(function () {
+        console.log('Document successfully deleted!')
+      }).catch(function (error) {
+        console.error('Error removing document: ', error)
+      })
+    }
+  },
+  watch: {
+    items: {
+      handler: function () {
+        // this.items.forEach(function (item) {
+        //   item.forEach(function (item) {
+        //     this.item_price += item.item_price
+        //     this.item_count += item.item_count
+        //   })
+        // })
+        for (let i = 0; i < this.items.length; i++) {
+          for (let k = 0; i < this.items[i].items.length; k++) {
+            console.log(this.items[i].items[k])
+            // this.item_price += this.items[i].items[k].item_price
+            // this.item_count += this.items[i].items[k].item_count
+          }
+        }
+      },
+      deep: true
+    }
   }
 }
 </script>
