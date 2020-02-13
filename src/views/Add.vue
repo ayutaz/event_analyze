@@ -93,21 +93,9 @@ export default {
     },
     changeSex: function (sex) {
       this.sex = sex
-    },
-    setVariable: function (data) {
-      if (typeof (data) !== 'number') return parseInt(data)
     }
   },
   watch: {
-    items: {
-      handler: function () {
-        for (let i = 0; i < this.items.length; i++) {
-          this.items.item_count += this.setVariable(this.items[i].item_count)
-          this.sum = this.items[i].item_count * this.items[i].item_price
-        }
-      },
-      deep: true
-    }
   }
 }
 </script>

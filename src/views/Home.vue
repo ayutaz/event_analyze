@@ -37,8 +37,8 @@ export default {
     return {
       db: null,
       items: [],
-      sum_price: 0,
-      sum_num: 0
+      sum_num: 0,
+      sum_price: 0
     }
   },
   created: function () {
@@ -50,8 +50,8 @@ export default {
         var data = doc.data()
         data.id = doc.id
         data.items.forEach(function (item) {
-          _this.sum_price += item.item_price
-          _this.sum_num += item.item_count
+          _this.sum_num += Number(item.item_count)
+          _this.sum_price += Number(item.item_price)
         })
         data.buyTime = data.buyTime.toDate()
         _this.items.push(data)
@@ -66,27 +66,12 @@ export default {
       }).catch(function (error) {
         console.error('Error removing document: ', error)
       })
+    },
+    setVariable: function (data) {
+      if (typeof (data) !== 'number') return parseInt(data)
     }
   },
   watch: {
-    items: {
-      handler: function () {
-        // this.items.forEach(function (item) {
-        //   item.forEach(function (item) {
-        //     this.item_price += item.item_price
-        //     this.item_count += item.item_count
-        //   })
-        // })
-        for (let i = 0; i < this.items.length; i++) {
-          for (let k = 0; i < this.items[i].items.length; k++) {
-            console.log(this.items[i].items[k])
-            // this.item_price += this.items[i].items[k].item_price
-            // this.item_count += this.items[i].items[k].item_count
-          }
-        }
-      },
-      deep: true
-    }
   }
 }
 </script>
