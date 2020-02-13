@@ -10,7 +10,7 @@
               </div>
               <div class="two wide field">
                 <label>個数</label>
-                <input v-model.number.trim="item.item_count" type="number" placeholder="0">
+                <input v-model.number.trim="item.item_count" type="number" placeholder="">
               </div>
             </div>
           </div>
@@ -96,14 +96,6 @@ export default {
     }
   },
   watch: {
-    items: {
-      handler: function () {
-        for (let i = 0; i < this.items.length; i++) {
-          this.sum = this.items[i].item_count * this.items[i].item_price
-        }
-      },
-      deep: true
-    }
   }
 }
 </script>
