@@ -31,7 +31,7 @@ export default {
       age: 0,
       sum: 0,
       sex: null,
-      buyTime: null
+      buy_time: null
     }
   },
   created () {
@@ -40,8 +40,8 @@ export default {
     this.db.collection('historys').doc(this.$route.params.id).onSnapshot(function (doc) {
       _this.items = []
       let datas = doc.data()
-      datas.buyTime = datas.buyTime.toDate()
-      _this.buyTime = datas.buyTime
+      datas.buy_time = datas.buy_time.toDate()
+      _this.buy_time = datas.buy_time
       _this.age = datas.age
       _this.sex = datas.sex
       _this.items = []

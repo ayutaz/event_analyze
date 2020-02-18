@@ -32,15 +32,15 @@ export default {
     let _this = this
     this.db.collection('items_index').doc(this.$route.params.id).onSnapshot(function (doc) {
       let datas = doc.data()
-      _this.item_name = datas.item_name
-      _this.item_price = datas.item_price
+      _this.item_name = datas.name
+      _this.item_price = datas.price
     })
   },
   methods: {
     changeItem: function () {
       this.db.collection('items_index').doc(this.$route.params.id).set({
-        item_name: this.item_name,
-        item_price: this.item_price
+        name: this.item_name,
+        price: this.item_price
       }).then(function () {
         console.log('Document successfully written!')
       }).catch(function (error) {

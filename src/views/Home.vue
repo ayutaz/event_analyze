@@ -18,7 +18,7 @@
           <i class="female red icon left floated meta" v-else-if="item.sex == '女'"></i>
           <i class="user green icon left floated meta" v-else-if="item.sex == 'その他'"></i>
           <div class="left floated detail">{{item.age}}</div>
-          <div class="right floated detail">{{item.buyTime.getFullYear()}}/{{item.buyTime.getMonth()}}/{{item.buyTime.getDay()}}</div>
+          <div class="right floated detail">{{item.buy_time.getFullYear()}}/{{item.buy_time.getMonth()}}/{{item.buy_time.getDay()}}</div>
         </div>
         <div class="ui buttons">
           <router-link :to="{name:'edit',params:{id:item.id}}" class="ui bottom attached button">修正</router-link>
@@ -53,7 +53,7 @@ export default {
           _this.sum_num += Number(item.item_count)
           _this.sum_price += Number(item.item_price)
         })
-        data.buyTime = data.buyTime.toDate()
+        data.buy_time = data.buy_time.toDate()
         _this.items.push(data)
       })
       _this.$store.dispatch('updateHistoryList', _this.items)
@@ -66,16 +66,7 @@ export default {
       }).catch(function (error) {
         console.error('Error removing document: ', error)
       })
-    },
-    setVariable: function (data) {
-      if (typeof (data) !== 'number') return parseInt(data)
     }
-  },
-  watch: {
   }
 }
 </script>
-
-<style>
-
-</style>

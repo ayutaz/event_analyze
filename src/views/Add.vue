@@ -76,7 +76,7 @@ export default {
         sex: _this.sex,
         age: _this.age,
         items: _this.items,
-        buyTime: new Date()
+        buy_time: new Date()
       })
         .then(function () {
           console.log('dbへの追加完了')
@@ -94,8 +94,6 @@ export default {
     changeSex: function (sex) {
       this.sex = sex
     }
-  },
-  watch: {
   }
 }
 </script>
