@@ -1,7 +1,10 @@
 <template>
     <div class="adminIndex">
         <div class="ui buttons" v-for="(item,key) in items" :key="key">
-            <router-link :to="{name:'adminEdit',params:{id:item.id}}" class="ui blue big button">{{item.item_name}}</router-link>
+            <router-link :to="{name:'adminEdit',params:{id:item.id}}" class="ui blue big button">{{item.name}}</router-link>
+        </div>
+        <div class="ui buttons">
+          <router-link to="/admin/add" class="ui button">商品の追加</router-link>
         </div>
     </div>
 </template>
