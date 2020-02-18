@@ -13,9 +13,10 @@
 <script>
 import firebase from 'firebase'
 import 'firebase/firestore'
+import store from '../../store/index'
 import { Pie } from 'vue-chartjs'
-import store from '../store/index'
 export default {
+  name: 'adminIndex',
   extends: Pie,
   data () {
     return {
