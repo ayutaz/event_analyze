@@ -3,6 +3,9 @@
         <div class="ui buttons" v-for="(item,key) in items" :key="key">
             <router-link :to="{name:'adminEdit',params:{id:item.id}}" class="ui blue big button">{{item.item_name}}</router-link>
         </div>
+        <!-- <div class="ui buttons">
+          <router-link to="adminAdd">?????</router-link>
+        </div> -->
     </div>
 </template>
 
@@ -33,16 +36,6 @@ export default {
         _this.items.push(data)
       })
     })
-    // this.$store.getters.getHistroyList.forEach(function (item) {
-    //   if (item.sex === '男') this.sexCount.man += 1
-    //   else if (item.sex === '女') this.sexCount.woman += 1
-    // })
-  },
-  mounted () {
-    // this.renderChart({
-    //   labels: ['男', '女'],
-    //   datasets: [this.sexCount.man, this.sexCount.woman]
-    // })
   }
 }
 </script>

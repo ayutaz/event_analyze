@@ -66,12 +66,7 @@ export default {
       }).catch(function (error) {
         console.error('Error removing document: ', error)
       })
-    },
-    setVariable: function (data) {
-      if (typeof (data) !== 'number') return parseInt(data)
     }
-  },
-  watch: {
   }
 }
 </script>
