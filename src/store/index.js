@@ -14,7 +14,8 @@ export default new Vuex.Store({
       { text: '50代', id: 5 },
       { text: '60代~', id: 6 }
     ],
-    historyList: []
+    historyList: [],
+    label: ['男', '女', 'その他']
   },
   getters: {
     getHistoryList: (state) => {

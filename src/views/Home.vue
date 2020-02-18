@@ -1,5 +1,5 @@
 <template>
-  <div class="home ui main container">
+  <div class="home">
     <div class="ui horizontal statistic">
       売り上げ金額
       <div class="label">￥</div>
