@@ -6,7 +6,7 @@
             <div class="two fields" v-for="(item,key) in items" :key="key">
               <div class="four wide field">
                 <label>商品名</label>
-                <input v-model="item.item_name" readonly="" type="text">
+                <input v-model="item.name" readonly="" type="text">
               </div>
               <div class="two wide field">
                 <label>個数</label>
