@@ -3,9 +3,6 @@
         <div class="ui buttons" v-for="(item,key) in items" :key="key">
             <router-link :to="{name:'adminEdit',params:{id:item.id}}" class="ui blue big button">{{item.item_name}}</router-link>
         </div>
-        <!-- <div class="ui buttons">
-          <router-link to="adminAdd">?????</router-link>
-        </div> -->
     </div>
 </template>
 

@@ -53,7 +53,7 @@ export default {
           _this.sum_num += Number(item.item_count)
           _this.sum_price += Number(item.item_price)
         })
-        data.buyTime = data.buyTime.toDate()
+        data.buyTime = data.buy_time.toDate()
         _this.items.push(data)
       })
       _this.$store.dispatch('updateHistoryList', _this.items)
@@ -70,7 +70,3 @@ export default {
   }
 }
 </script>
-
-<style>
-
-</style>
