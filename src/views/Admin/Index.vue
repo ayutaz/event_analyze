@@ -14,10 +14,8 @@
 import firebase from 'firebase'
 import 'firebase/firestore'
 import store from '../../store/index'
-import { Pie } from 'vue-chartjs'
 export default {
   name: 'adminIndex',
-  extends: Pie,
   data () {
     return {
       db: null,
@@ -47,7 +45,6 @@ export default {
   },
   mounted () {
     this.graphData.data = store.state.label
-    this.renderChart(this.graphData)
   },
   methods: {
     searchSexAnalyze: function () {
