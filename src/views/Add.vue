@@ -1,5 +1,5 @@
 <template>
-    <div class="add ui main container">
+    <div class="add">
         <form class="ui form">
           <h4 class="ui dividing header">販売品入力</h4>
           <div class="ui field">

@@ -9,7 +9,9 @@
         <i class="question circle outline big icon"></i>
       </router-link>
     </div>
+    <div class="ui main container">
     <router-view/>
+    </div>
     <div class="ui bottom fixed massive three item menu">
       <router-link to="/" class="item"><i class="home icon"></i>ホーム</router-link>
       <router-link to="/add" class="item"><i class="plus icon"></i>追加</router-link>
